@@ -1,0 +1,49 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="console-messages">
+  <template>
+    <style>
+      :host {
+        display: block;
+        --background-color: lightblue;
+      }
+     .console{
+       display: flex;
+       flex-direction: column;
+       min-height: 100px;
+       min-width: 400px;
+       border-radius: 4px;
+       background-color: var(--background-color);
+       padding: 0 10px;
+     }
+    </style>
+    <div class="console">
+      <h2>[[title]]</h2>
+      <slot></slot>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * `console-messages`
+     *
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ConsoleMessages extends Polymer.Element {
+      static get is() { return 'console-messages'; }
+      static get properties() {
+        return {
+          title: {
+            type: String,
+            value: 'Consola de Mensajes'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(ConsoleMessages.is, ConsoleMessages);
+  </script>
+</dom-module>
